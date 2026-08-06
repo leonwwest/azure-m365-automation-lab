@@ -1,6 +1,7 @@
 # Azure & Microsoft 365 Automation Lab
 
 [![CI](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml)
+[![Security](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/security.yml/badge.svg)](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/security.yml)
 
 ![Azure and M365 Tenant Guard overview](assets/social-preview.svg)
 
@@ -15,8 +16,14 @@ and does not pretend that a synthetic lab is productive tenant experience.
 |---|---|
 | What is automated? | Sanitized inventory export, deterministic governance checks and report generation |
 | What is the safety boundary? | Discovery is read-only; every remediation remains a dry run until approval |
-| What can be verified? | Seven tests, Ruff checks and a GitHub Actions quality gate |
+| What can be verified? | Seven tests, 11 deterministic sample findings, Ruff, CodeQL, Trivy and an SPDX SBOM |
 | What is production-aware? | Data minimization, trust boundaries, severity, review, rollback and documented limitations |
+
+### Real execution evidence
+
+The recording below is rendered from an actual Tenant Guard run against the committed sanitized inventory followed by the real test suite. It is not an AI-generated interface.
+
+![Tenant Guard real command run](docs/demo.gif)
 
 ## What the project demonstrates
 
