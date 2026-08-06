@@ -2,10 +2,21 @@
 
 [![CI](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml)
 
+![Azure and M365 Tenant Guard overview](assets/social-preview.svg)
+
 A tenant-free portfolio project for Azure and Microsoft 365 governance automation. It turns a
 sanitized inventory into evidence-based identity, application, Conditional Access, monitoring,
 network and tagging findings. The repository is intentionally safe to run without a subscription
 and does not pretend that a synthetic lab is productive tenant experience.
+
+## Recruiter quick view
+
+| Question | Evidence in this repository |
+|---|---|
+| What is automated? | Sanitized inventory export, deterministic governance checks and report generation |
+| What is the safety boundary? | Discovery is read-only; every remediation remains a dry run until approval |
+| What can be verified? | Seven tests, Ruff checks and a GitHub Actions quality gate |
+| What is production-aware? | Data minimization, trust boundaries, severity, review, rollback and documented limitations |
 
 ## What the project demonstrates
 
@@ -98,4 +109,3 @@ tenant-specific policy, approvals, rollback planning and privileged access manag
 ## License
 
 MIT
-
