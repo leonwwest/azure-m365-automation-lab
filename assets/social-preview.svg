@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <rect width="1280" height="640" fill="#0b1220"/>
+  <rect x="0" y="0" width="12" height="640" fill="#2f81f7"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="72" y="82" fill="#7d8ba3" font-size="18" font-weight="600" letter-spacing="2">LEON WESTERMEIR · ENGINEERING PORTFOLIO</text>
+    <text x="72" y="190" fill="#f4f7fb" font-size="58" font-weight="700">Azure &amp; M365</text>
+    <text x="72" y="258" fill="#f4f7fb" font-size="58" font-weight="700">Tenant Guard</text>
+    <text x="72" y="310" fill="#8fbfff" font-size="24">Governance · Evidence · Safe Automation</text>
+    <g fill="#121d30" stroke="#273a56">
+      <rect x="72" y="382" width="116" height="42" rx="8"/><rect x="200" y="382" width="132" height="42" rx="8"/>
+      <rect x="344" y="382" width="138" height="42" rx="8"/>
+    </g>
+    <g fill="#c8d4e6" font-size="16" font-weight="600">
+      <text x="96" y="409">PYTHON</text><text x="220" y="409">POWERSHELL</text><text x="366" y="409">AZURE / M365</text>
+    </g>
+    <text x="72" y="540" fill="#7d8ba3" font-size="18">Sanitized inventory → deterministic checks → reviewable remediation plan</text>
+  </g>
+  <g transform="translate(730 126)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="450" height="368" rx="18" fill="#0e1829" stroke="#273a56" stroke-width="2"/>
+    <g stroke="#314866" stroke-width="2"><path d="M55 92H210M242 92H396M55 190H210M242 190H396M210 92L242 92M210 190L242 190M226 108V174"/></g>
+    <g fill="#14243a" stroke="#2f81f7" stroke-width="2">
+      <rect x="34" y="61" width="176" height="62" rx="10"/><rect x="242" y="61" width="174" height="62" rx="10"/>
+      <rect x="34" y="159" width="176" height="62" rx="10"/><rect x="242" y="159" width="174" height="62" rx="10"/>
+    </g>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#c8d4e6" font-size="17" font-weight="600">
+      <text x="57" y="99">Tenant inventory</text><text x="272" y="99">Security rules</text>
+      <text x="57" y="197">Evidence report</text><text x="272" y="197">Approval gate</text>
+    </g>
+    <path d="M226 262l52 20v38c0 34-22 58-52 72-30-14-52-38-52-72v-38l52-20z" fill="#102d53" stroke="#58a6ff" stroke-width="3"/>
+    <path d="M204 322l16 16 30-34" stroke="#7ee787" stroke-width="6"/>
+  </g>
+</svg>
