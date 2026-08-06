@@ -1,0 +1,73 @@
+{
+  "tenant": "contoso-lab.onmicrosoft.com",
+  "generated_at": "2026-08-06T08:00:00Z",
+  "users": [
+    {
+      "display_name": "Global Admin Lab",
+      "user_type": "Member",
+      "enabled": true,
+      "is_privileged": true,
+      "mfa_registered": false,
+      "break_glass": false,
+      "last_sign_in_at": "2026-06-01T10:00:00Z",
+      "licenses": ["M365_E5"]
+    },
+    {
+      "display_name": "Emergency Access 01",
+      "user_type": "Member",
+      "enabled": true,
+      "is_privileged": true,
+      "mfa_registered": true,
+      "break_glass": true,
+      "last_sign_in_at": "2026-08-01T10:00:00Z",
+      "licenses": []
+    },
+    {
+      "display_name": "External Project Guest",
+      "user_type": "Guest",
+      "enabled": true,
+      "is_privileged": false,
+      "mfa_registered": true,
+      "break_glass": false,
+      "last_sign_in_at": "2025-11-01T10:00:00Z",
+      "licenses": []
+    }
+  ],
+  "service_principals": [
+    {
+      "display_name": "legacy-etl-automation",
+      "owners": [],
+      "credential_expires_at": "2026-08-20T00:00:00Z"
+    }
+  ],
+  "conditional_access_policies": [
+    {
+      "display_name": "Legacy locations",
+      "state": "disabled",
+      "grant_controls": ["mfa"]
+    }
+  ],
+  "azure_resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "stlaboperations",
+      "public_network_access": "Enabled",
+      "diagnostic_settings": [],
+      "tags": {
+        "environment": "lab"
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "name": "kv-lab-shared",
+      "public_network_access": "Disabled",
+      "diagnostic_settings": ["central-law"],
+      "tags": {
+        "owner": "platform-team",
+        "cost_center": "training",
+        "environment": "lab"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest ruff
+      - run: ruff check src tests
+      - run: pytest -q
+      - name: Produce demonstration report
+        run: |
+          PYTHONPATH=src python -m tenant_guard.cli inventory/sample-tenant.json \
+            --output reports/ci --fail-on never
+
