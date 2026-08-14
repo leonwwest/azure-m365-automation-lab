@@ -1,14 +1,15 @@
-# Azure & Microsoft 365 Automation Lab
+# Azure & Microsoft 365 Tenant Guard
 
 [![CI](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/ci.yml)
 [![Security](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/security.yml/badge.svg)](https://github.com/leonwwest/azure-m365-automation-lab/actions/workflows/security.yml)
 
 ![Azure and M365 Tenant Guard overview](assets/social-preview.svg)
 
-A tenant-free portfolio project for Azure and Microsoft 365 governance automation. It turns a
-sanitized inventory into evidence-based identity, application, Conditional Access, monitoring,
-network and tagging findings. The repository is intentionally safe to run without a subscription
-and does not pretend that a synthetic lab is productive tenant experience.
+A portfolio lab for Azure and Microsoft 365 governance automation. Tenant Guard turns a committed
+synthetic inventory—or a locally sanitized export—into reviewable identity, application,
+Conditional Access, monitoring, network and tagging findings. Its public evidence covers local,
+subscription-free execution; the architecture keeps tenant discovery read-only and remediation
+behind an explicit approval boundary.
 
 ## Recruiter quick view
 
@@ -21,7 +22,9 @@ and does not pretend that a synthetic lab is productive tenant experience.
 
 ### Real execution evidence
 
-The recording below is rendered from an actual Tenant Guard run against the committed sanitized inventory followed by the real test suite. It is not an AI-generated interface.
+The recording captures the Tenant Guard CLI running against the committed sanitized inventory,
+followed by the repository's test suite. The commands, sample input and generated report path are
+all available in this repository for independent reproduction.
 
 ![Tenant Guard real command run](docs/demo.gif)
 
@@ -75,8 +78,8 @@ The command creates:
 | Azure Monitor | Diagnostic settings missing | Medium |
 | Governance | Owner, cost center or environment tag missing | Low |
 
-The demonstration score is transparent and deliberately labelled as a local heuristic. It is
-not Microsoft Secure Score.
+The demonstration score is a transparent, documented local heuristic. Microsoft Secure Score is
+outside this lab's evidence scope.
 
 ## Safe tenant export
 
@@ -108,10 +111,10 @@ docs/runbook.md             Evidence, triage, approval and verification workflow
 
 ## Scope and limitations
 
-This lab uses synthetic data and a sanitized-export pattern. It proves automation design,
-PowerShell/Python integration, governance reasoning, testing and documentation. It does not claim
-production access to Entra ID, Microsoft 365 or an Azure subscription. Real remediation requires
-tenant-specific policy, approvals, rollback planning and privileged access management.
+The committed evidence uses synthetic data and a sanitized-export pattern. It demonstrates
+automation design, PowerShell/Python integration, governance reasoning, testing and documentation
+without requiring production tenant access. A tenant rollout would add tenant-specific policy,
+privileged access management, change approvals, rollback planning and post-change verification.
 
 ## License
 
