@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from tenant_guard.audit import SEVERITY_ORDER, audit_inventory
+from tenant_guard.inventory_schema import validate_inventory
 from tenant_guard.reporting import write_report_bundle
 
 
@@ -26,6 +27,12 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     inventory = json.loads(args.inventory.read_text(encoding="utf-8"))
+    validation_errors = validate_inventory(inventory)
+    if validation_errors:
+        print("Inventory validation failed:")
+        for error in validation_errors:
+            print(f"- {error}")
+        return 3
     report = audit_inventory(inventory)
     paths = write_report_bundle(report, args.output)
     print(
@@ -44,4 +51,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

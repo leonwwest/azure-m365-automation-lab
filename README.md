@@ -17,7 +17,7 @@ behind an explicit approval boundary.
 |---|---|
 | What is automated? | Sanitized inventory export, deterministic governance checks and report generation |
 | What is the safety boundary? | Discovery is read-only; every remediation remains a dry run until approval |
-| What can be verified? | Seven tests, 11 deterministic sample findings, Ruff, CodeQL, Trivy and an SPDX SBOM |
+| What can be verified? | Versioned JSON Schema, Python and Pester tests, 11 deterministic sample findings, Ruff, CodeQL, Trivy and an SPDX SBOM |
 | What is production-aware? | Data minimization, trust boundaries, severity, review, rollback and documented limitations |
 
 ### Real execution evidence
@@ -53,7 +53,7 @@ flowchart LR
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install pytest ruff
+pip install -e . pytest ruff
 PYTHONPATH=src python -m tenant_guard.cli inventory/sample-tenant.json \
   --output reports/latest --fail-on never
 pytest -q
@@ -86,6 +86,10 @@ outside this lab's evidence scope.
 `powershell/Export-SanitizedInventory.ps1` requests read-only Graph scopes. It omits UPNs, mail
 addresses, object IDs and credential values. Real exports belong in `inventory/private/`, which is
 ignored by Git, and still require a manual privacy review before sharing.
+
+Every input is checked against the [versioned inventory schema](docs/inventory-schema.md) before
+the audit starts. Incompatible fields fail with a precise JSON path instead of being silently
+accepted.
 
 Azure Resource Graph data can be mapped into the same inventory contract. The checked-in sample
 contains only fictional resources.
