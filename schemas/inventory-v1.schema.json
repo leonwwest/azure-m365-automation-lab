@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/leonwwest/azure-m365-automation-lab/schemas/inventory-v1.schema.json",
+  "title": "Tenant Guard sanitized inventory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tenant",
+    "generated_at",
+    "users",
+    "service_principals",
+    "conditional_access_policies",
+    "azure_resources"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "tenant": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["display_name", "user_type", "enabled", "is_privileged", "mfa_registered", "break_glass", "last_sign_in_at", "licenses"],
+        "properties": {
+          "display_name": { "type": "string" },
+          "user_type": { "enum": ["Member", "Guest"] },
+          "enabled": { "type": "boolean" },
+          "is_privileged": { "type": "boolean" },
+          "mfa_registered": { "type": "boolean" },
+          "break_glass": { "type": "boolean" },
+          "last_sign_in_at": { "type": ["string", "null"], "format": "date-time" },
+          "licenses": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "service_principals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["display_name", "owners", "credential_expires_at"],
+        "properties": {
+          "display_name": { "type": "string" },
+          "owners": { "type": "array", "items": { "type": "string" } },
+          "credential_expires_at": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "conditional_access_policies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["display_name", "state", "grant_controls"],
+        "properties": {
+          "display_name": { "type": "string" },
+          "state": { "type": "string" },
+          "grant_controls": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "azure_resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "name", "public_network_access", "diagnostic_settings", "tags"],
+        "properties": {
+          "type": { "type": "string" },
+          "name": { "type": "string" },
+          "public_network_access": { "type": "string" },
+          "diagnostic_settings": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "object", "additionalProperties": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

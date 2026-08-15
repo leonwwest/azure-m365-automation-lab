@@ -23,6 +23,7 @@ $policies = Get-MgIdentityConditionalAccessPolicy -All
 
 # This export deliberately omits UPNs, mail addresses, object IDs and credential values.
 $inventory = [ordered]@{
+    schema_version = '1.0.0'
     tenant = "tenant-$($context.TenantId.Substring(0, 8))"
     generated_at = (Get-Date).ToUniversalTime().ToString('o')
     users = @($users | ForEach-Object {
@@ -62,4 +63,3 @@ if ($directory) {
 $inventory | ConvertTo-Json -Depth 8 | Set-Content -Path $OutputPath -Encoding utf8
 Write-Host "Sanitized inventory written to $OutputPath"
 Write-Warning 'Review the export before moving it outside inventory/private/.'
-
