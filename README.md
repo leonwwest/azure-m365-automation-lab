@@ -51,13 +51,11 @@ flowchart LR
 ## Quick start
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e . pytest ruff
-PYTHONPATH=src python -m tenant_guard.cli inventory/sample-tenant.json \
-  --output reports/latest --fail-on never
-pytest -q
+make verify
 ```
+
+`make verify-all` additionally runs the Pester contract for the sanitized PowerShell exporter and
+requires `pwsh`. The narrower `make verify` path is deterministic and tenant-free.
 
 The command creates:
 
